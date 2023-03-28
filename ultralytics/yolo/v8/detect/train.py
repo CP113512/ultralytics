@@ -218,4 +218,5 @@ def train(cfg=DEFAULT_CFG, use_python=False):
 
 
 if __name__ == '__main__':
+
     train()

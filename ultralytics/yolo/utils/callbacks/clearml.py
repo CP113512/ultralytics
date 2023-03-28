@@ -31,7 +31,6 @@ def on_pretrain_routine_start(trainer):
     except Exception as e:
         LOGGER.warning(f'WARNING ⚠️ ClearML installed but not initialized correctly, not logging this run. {e}')
 
-
 def on_train_epoch_end(trainer):
     if trainer.epoch == 1:
         _log_images({f.stem: str(f) for f in trainer.save_dir.glob('train_batch*.jpg')}, 'Mosaic', trainer.epoch)
