@@ -197,7 +197,7 @@ class Loss:
                                               target_scores_sum, fg_mask)
 
         loss[0] *= self.hyp.box  # box gain
-        loss[1] *= self.hyp.cls  # cls gain
+        loss[1] *= self.hyp.cls  # cls gainc
         loss[2] *= self.hyp.dfl  # dfl gain
 
         return loss.sum() * batch_size, loss.detach()  # loss(box, cls, dfl)

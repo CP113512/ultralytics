@@ -232,13 +232,13 @@ class DetectionValidator(BaseValidator):
             except Exception as e:
                 LOGGER.warning(f'pycocotools unable to run: {e}')
         return stats
-
+#ultralytics/yolo/v8/detect/pest-dec/yolov8l-all/weights/best.pt
 
 def val(cfg=DEFAULT_CFG, use_python=False):
     model = cfg.model or 'yolov8n.pt'
     data = cfg.data or 'coco128.yaml'
-
-    args = dict(model=model, data=data)
+    project = cfg.project
+    args = dict(model=model, data=data, project=project)
     if use_python:
         from ultralytics import YOLO
         YOLO(model).val(**args)
@@ -249,3 +249,4 @@ def val(cfg=DEFAULT_CFG, use_python=False):
 
 if __name__ == '__main__':
     val()
+# yolo val model=ultralytics/yolo/v8/detect/pest-dec/yolov8s-all/weights/best.pt data=ultralytics/datasets/cocopest.yaml

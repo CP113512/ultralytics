@@ -309,7 +309,8 @@ class SPP(nn.Module):
 
     def forward(self, x):
         x = self.cv1(x)
-        return self.cv2(torch.cat([x] + [m(x) for m in self.m], 1))
+        xl = [m(x) for m in self.m]
+        return self.cv2(torch.cat([x] + xl, 1))
 
 
 class SPPF(nn.Module):
